@@ -1,2 +1,1 @@
-# dyad
-Stock viewing platform powered by Java Spring Boot
+# Dyad - Stock Investment Application

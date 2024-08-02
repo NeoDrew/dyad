@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+  <title>Event Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .event-details-container {
+      margin-top: 20px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    }
+
+    .event-details-header {
+      margin-bottom: 20px;
+    }
+
+    .event-detail {
+      margin-bottom: 10px;
+    }
+
+    .back-to-events {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div layout:fragment="content">
+    <div class="container event-details-container">
+      <div class="event-details-header">
+        <h1 th:text="${name}">Event Name</h1>
+      </div>
+      <div class="event-detail">
+        <p><strong>Venue:</strong> <span th:text="${venue}">Venue Name</span></p>
+      </div>
+      <div class="event-detail">
+        <p><strong>Date:</strong> <span th:text="${date}">Event Date</span></p>
+      </div>
+      <div class="event-detail">
+        <p><strong>Time:</strong> <span th:text="${time}">Event Time</span></p>
+      </div>
+      <div class="event-detail">
+        <p><strong>Description:</strong> <span th:text="${description}">Event Description</span></p>
+      </div>
+      <a th:href="@{/events}" class="btn btn-primary back-to-events">Back to events</a>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/default}">
+<head>
+  <title>Update</title>
+</head>
+<body>
+  <div layout:fragment="content">
+    <h1>Update event</h1>
+    
+	<form th:action="@{'/events/update'}" th:object="${event}" method="post">
+      <div class="form-group" th:classappend="${#fields.hasErrors('name')}? has-error">
+      	<input class="form-control" type="hidden" id="id" th:field="*{id}" autofocus="autofocus" />
+        <label for="name">Event</label>
+        <input class="form-control" type="text" th:field="*{name}" id="name" autofocus="autofocus" />
+        <label for="venue.name">Venue</label>
+        <input class="form-control" type="text" th:field="*{venue.name}" id="venue.name" autofocus="autofocus" />
+        <label for="date">Date</label>
+        <input class="form-control" type="text" th:field="*{date}" id="date" autofocus="autofocus" />
+        <label for="time">Time</label>
+        <input class="form-control" type="text" th:field="*{time}" id="time" autofocus="autofocus" />
+        
+		<label for="description">Description</label>
+        <input class="form-control" type="text" th:field="*{description}" id="description" autofocus="autofocus" />
+        
+		<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">errors</p>
+      </div>
+    
+      <button class="btn btn-primary" type="submit"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Save</button>
+      <a class="btn btn-warning" role="button" href="/events"><i class="fa-solid fa-ban" aria-hidden="true"></i> Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

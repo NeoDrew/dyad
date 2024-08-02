@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <title>Create New Event</title>
+</head>
+<body>
+<div layout:fragment="content">
+    
+    <h1>Create New Event</h1>
+    <form th:action="@{/events}" method="post" th:object="${event}">
+        <div class="form-group">
+            <label for="eventName">Event Name:</label>
+            <input type="text" class="form-control" id="eventName" name="name" th:field="*{name}" required>
+            <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+        <div class="form-group">
+            <label for="eventVenue">Venue:</label>
+            <input type="text" class="form-control" id="eventVenue" name="venue.name" required>
+            <span class="text-danger" th:if="${#fields.hasErrors('venue.name')}" th:errors="*{venue.name}"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="eventDate">Date:</label>
+            <input type="date" class="form-control" id="eventDate" name="date" th:field="*{date}" required>
+            <span class="text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+        </div>
+        <div class="form-group">
+            <label for="eventTime">Time:</label>
+            <input type="time" class="form-control" id="eventTime" name="time" th:field="*{time}" required>
+            <span class="text-danger" th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></span>
+        </div>
+        <div class="form-group">
+            <label for="eventDescription">Description:</label>
+            <textarea class="form-control" id="eventDescription" name="description" th:field="*{description}" rows="3"></textarea>
+            <span class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Event</button>
+    </form>
+    <a href="/events" class="btn btn-primary">Cancel</a>
+</div>
+</body>
+</html>
