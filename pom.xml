@@ -5,7 +5,8 @@
   <artifactId>dyad</artifactId>
   <version>4.0.0</version>
   <name>DyadStocks</name>
-
+  <title>Dyad Stocks</title>
+  
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>

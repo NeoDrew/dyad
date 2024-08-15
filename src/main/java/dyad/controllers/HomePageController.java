@@ -37,6 +37,6 @@ public class HomePageController {
 		List<Stock> stocks = stockService.findAll();
 		model.addAttribute("stocks", stocks.subList(0, Math.min(3, stocks.size())));
 		
-		return "homepage/index";
+		return "index";
 	}
 }

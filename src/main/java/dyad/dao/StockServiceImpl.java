@@ -32,7 +32,7 @@ public class StockServiceImpl implements StockService {
 
 	@Override
 	public List<Stock> findAll() {
-		return (List<Stock>) stockRepository.findAll(Sort.by("date").ascending().and(Sort.by("name").ascending()));
+		return (List<Stock>) stockRepository.findAll();
 	}
 
 	@Override
